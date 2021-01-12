@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.test.controller.Controller"
+            prefHeight="600.0" prefWidth="600.0">
+
+
+    <center>
+        <ListView fx:id="listView"/>
+    </center>
+
+    <right>
+        <VBox spacing="10">
+            <Button text="Add" fx:id="AddBtn" onAction="#onAdd"/>
+            <Button text="Save" fx:id="SaveBtn" onAction="#onSave"/>
+            <Button text="Edit" onAction="#onEdit"/>
+            <Button text="Load" fx:id="load" onAction="#zaladuj"/>
+            <Button text="Delete" fx:id="delete"/>
+
+            <fx:define>
+                <ToggleGroup fx:id="group" />
+            </fx:define>
+
+            <TextField fx:id="fieldName"  text="" />
+            <TextField fx:id="fieldA" text="" />
+            <RadioButton fx:id="buttonA" text="AnswerA" onAction="#answerChecked" toggleGroup="$group"/>
+            <TextField fx:id="fieldB" text="" />
+            <RadioButton fx:id="buttonB" text="AnswerB" onAction="#answerChecked" toggleGroup="$group"/>
+            <TextField fx:id="fieldC" text="" />
+            <RadioButton fx:id="buttonC" text="AnswerC" onAction="#answerChecked" toggleGroup="$group"/>
+            <TextField fx:id="fieldD" text="" />
+            <RadioButton fx:id="buttonD" text="AnswerD" onAction="#answerChecked" toggleGroup="$group"/>
+
+
+
+            <padding>
+                <Insets topRightBottomLeft="10"/>
+            </padding>
+        </VBox>
+    </right>
+
+</BorderPane>
