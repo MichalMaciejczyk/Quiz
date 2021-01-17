@@ -1,0 +1,27 @@
+{
+  "questions" : [ {
+    "text" : "pytanie1",
+    "answerA" : "a",
+    "answerB" : "b",
+    "answerC" : "c",
+    "answerD" : "d",
+    "rightAnswer" : [ 1 ],
+    "questionType" : 1
+  }, {
+    "text" : "pytanie2",
+    "answerA" : "a",
+    "answerB" : "b",
+    "answerC" : "c",
+    "answerD" : "d",
+    "rightAnswer" : [ 1 ],
+    "questionType" : 3
+  }, {
+    "text" : "pytanie3",
+    "answerA" : "a",
+    "answerB" : "b",
+    "answerC" : "c",
+    "answerD" : "d",
+    "rightAnswer" : [ 1 ],
+    "questionType" : 3
+  } ]
+}
