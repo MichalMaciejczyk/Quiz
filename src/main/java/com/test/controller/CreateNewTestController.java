@@ -2,7 +2,13 @@ package com.test.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.type.MapType;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.test.PDF.HelloWorld;
 import com.test.entity.QuestionModel;
+import com.test.entity.Questions;
+import com.test.entity.QuestionsWrapper;
 import com.test.entity.Quiz;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -17,11 +23,18 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -218,7 +231,9 @@ public class CreateNewTestController {
         Add.setDisable(false);
     }
 
-    public void onAdd(){
+    public void onAdd() throws FileNotFoundException {
+        HelloWorld hl = new HelloWorld();
+        hl.createPdf();
         QuestionModel question =new QuestionModel();
         question.text.setValue(fieldName.getText());
         question.answerA.setValue(fieldA.getText());
@@ -508,6 +523,71 @@ public class CreateNewTestController {
         for(IntegerProperty prop : question.rightAnswer){
             System.out.println(prop.getValue());
         }
+
+    }
+    public void onExport() throws Exception {
+        String filePath = new File("").getAbsolutePath();
+        File jsonFile = new File(filePath + "//src//main//resources//data1.json").getAbsoluteFile();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        // enable pretty printing
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        // read map from file
+        MapType mapType = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
+        Gson gson=new Gson();
+        Map<String, Object> map = mapper.readValue(jsonFile, mapType);
+        String json = mapper.writeValueAsString(map);
+//      Type listType = new TypeToken<List<Questions>>() {}.getType();
+
+//      List<Questions> yourList = new Gson().fromJson(json, listType);
+        QuestionsWrapper yourList= new Gson().fromJson(json,QuestionsWrapper.class);
+        QuestionsWrapper q=gson.fromJson(json,QuestionsWrapper.class);
+        System.out.println(json);
+//        yourList.forEach(s-> System.out.println(s));
+        System.out.println(yourList);
+        for(Questions w:yourList.getQuestions()){
+            System.out.println(w.answerA);
+        }
+
+
+
+        // generate pretty JSON from map
+        // split by system new lines
+        String[] strings = json.split(System.lineSeparator());
+
+        PDDocument document = new PDDocument();
+        PDPage page = new PDPage();
+        document.addPage(page);
+
+        PDPageContentStream contentStream = new PDPageContentStream(document, page);
+
+
+        contentStream.setFont(PDType1Font.COURIER, 12);
+        contentStream.beginText();
+        contentStream.setLeading(14.5f);
+        contentStream.newLineAtOffset(25, 725);
+        for (String string : strings) {
+            contentStream.showText(string);
+            // add line manually
+            contentStream.newLine();
+        }
+        contentStream.endText();
+        contentStream.close();
+
+        document.save("pdfBoxHelloWorld.pdf");
+        document.close();
+    }
+    public void onWydrukuj()  {
+        HelloWorld h=new HelloWorld();
+        try{
+            h.createPdf();
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+
 
     }
 }

@@ -45,6 +45,8 @@
             <RadioButton fx:id="buttonD" text="Odpowiedź D" onAction="#answerChecked" />
             <TextField fx:id="fieldD" text="" />
             <Button text="Dodaj" fx:id="Add" onAction="#onAdd" />
+            <Button text="dupa" onAction="#onExport"/>
+            <Button text="dupa2" onAction="#onWydrukuj"/>
 
 
 
