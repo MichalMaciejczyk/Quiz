@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.test.controller.CreateNewTestController"
+            prefHeight="600.0" prefWidth="800.0">
+
+
+    <center>
+        <ListView fx:id="listView"/>
+    </center>
+
+    <right>
+        <VBox spacing="10" prefWidth="300">
+            <ComboBox fx:id="comboId" layoutX="210.0" layoutY="108.0" prefHeight="27.0" prefWidth="200.0" promptText="Wybierz typ pytania">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:id="1" fx:value="Pytanie zamknięte" />
+                        <String fx:id="2" fx:value="Krótka odpowiedź"/>
+                        <String fx:id="3" fx:value="Pytanie opisowe"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Button text="Zapisz jako" fx:id="SaveAs" onAction="#onSaveAs"/>
+            <Button text="Edytuj" fx:id="EditBtn" onAction="#onEdit" />
+            <Button text="Usuń" fx:id="DeleteBtn" onAction="#onDelete" />
+            <Button text="Wymieszaj pytania" fx:id="MixBtn" onAction="#onMix"/>
+            <Button text="Wymieszaj odpowiedzi" fx:id="MixBtnAns" onAction="#onMixAnswers"/>
+            <Label text="Tu wpisz swoje pytanie"/>
+            <TextField fx:id="fieldName"  text="" />
+            <RadioButton fx:id="buttonA" text="Odpowiedź A" onAction="#answerChecked"/>
+            <TextField fx:id="fieldA" text="" />
+            <RadioButton fx:id="buttonB" text="Odpowiedź B" onAction="#answerChecked"  />
+            <TextField fx:id="fieldB" text="" />
+            <RadioButton fx:id="buttonC" text="Odpowiedź C" onAction="#answerChecked"/>
+            <TextField fx:id="fieldC" text="" />
+            <RadioButton fx:id="buttonD" text="Odpowiedź D" onAction="#answerChecked" />
+            <TextField fx:id="fieldD" text="" />
+            <Button text="Dodaj" fx:id="Add" onAction="#onAdd" />
+
+
+
+
+
+
+            <padding>
+                <Insets topRightBottomLeft="10"/>
+            </padding>
+        </VBox>
+    </right>
+
+</BorderPane>

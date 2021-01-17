@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.test.controller.OpenExistingTestController"
+            prefHeight="600.0" prefWidth="800.0">
+
+
+    <center>
+        <ListView fx:id="listView"/>
+    </center>
+
+    <right>
+        <VBox spacing="10" prefWidth="300">
+
+            <Button text="Save as"  />
+            <Button text="Edit"  />
+            <Button text="Delete"  />
+
+            <TextField fx:id="fieldName"  text="" />
+            <RadioButton fx:id="buttonA" text="Odpowiedź A" />
+            <TextField fx:id="fieldA" text="" />
+            <RadioButton fx:id="buttonB" text="Odpowiedź B"   />
+            <TextField fx:id="fieldB" text="" />
+            <RadioButton fx:id="buttonC" text="Odpowiedź C" />
+            <TextField fx:id="fieldC" text="" />
+            <RadioButton fx:id="buttonD" text="Odpowiedź D"  />
+            <TextField fx:id="fieldD" text="" />
+            <Button text="Add" fx:id="Dodaj"  />
+
+
+            <padding>
+                <Insets topRightBottomLeft="10"/>
+            </padding>
+        </VBox>
+    </right>
+
+</BorderPane>

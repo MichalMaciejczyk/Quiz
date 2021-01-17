@@ -20,27 +20,35 @@ public class StartController {
     @FXML
     private Label WelcomeLabel;
     @FXML
-    private Button TeacherBtn;
+    private Button CreateNewTest;
     @FXML
-    private Button StudentBtn;
+    private Button OpenExistingTest;
 
     @FXML
     public void initialize() {
 
         WelcomeLabel.setWrapText(true);
         WelcomeLabel.setFont(new Font("Arial", 15));
-        TeacherBtn.setAlignment(Pos.CENTER);
-        StudentBtn.setAlignment(Pos.CENTER);
+        CreateNewTest.setAlignment(Pos.CENTER);
+        OpenExistingTest.setAlignment(Pos.CENTER);
     }
 
-    public void onTeacher(ActionEvent event)throws IOException {
-        Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+    public void onCreateNewTest(ActionEvent event)throws IOException {
+        Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("CreateNewTest.fxml"));
         Scene login = new Scene(parent);
 
         Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(login);
         window.show();
+    }
 
+    public void onOpenExisitngTest(ActionEvent event)throws IOException {
+        Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("OpenExistingTest.fxml"));
+        Scene login = new Scene(parent);
+
+        Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(login);
+        window.show();
     }
 
 }

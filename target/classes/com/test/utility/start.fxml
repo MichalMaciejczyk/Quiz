@@ -23,7 +23,7 @@
 results or create/modify tests hit Teacher button"
             GridPane.columnIndex="0" GridPane.rowIndex="0"
     />
-    <Button   text="Teacher" fx:id="TeacherBtn" onAction="#onTeacher" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-    <Button  text="Student" fx:id="StudentBtn" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Button   text="Utwórz nowy test" fx:id="CreateNewTest" onAction="#onCreateNewTest" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Button  text="Otwórz istniejący test" fx:id="OpenExistingTest" onAction="#onOpenExisitngTest" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
 </GridPane>

@@ -22,22 +22,25 @@
             <Button text="Add" fx:id="AddBtn" onAction="#onAdd"/>
             <Button text="Save" fx:id="SaveBtn" onAction="#onSave"/>
             <Button text="Edit" onAction="#onEdit"/>
-            <Button text="Load" fx:id="load" onAction="#zaladuj"/>
-            <Button text="Delete" fx:id="delete"/>
+            <Button text="Load" fx:id="LoadBtn" onAction="#onLoad"/>
+            <Button text="Delete" fx:id="DeleteBtn" onAction="#onDelete"/>
+            <Button text="Export" fx:id="ExportBtn" onAction="#onExport"/>
+            <Button text="SingleString" fx:id="SingleString" onAction="#onAddSingleString"/>
 
             <fx:define>
                 <ToggleGroup fx:id="group" />
             </fx:define>
 
             <TextField fx:id="fieldName"  text="" />
-            <TextField fx:id="fieldA" text="" />
+
             <RadioButton fx:id="buttonA" text="AnswerA" onAction="#answerChecked" toggleGroup="$group"/>
-            <TextField fx:id="fieldB" text="" />
+            <TextField fx:id="fieldA" text="" />
             <RadioButton fx:id="buttonB" text="AnswerB" onAction="#answerChecked" toggleGroup="$group"/>
-            <TextField fx:id="fieldC" text="" />
+            <TextField fx:id="fieldB" text="" />
             <RadioButton fx:id="buttonC" text="AnswerC" onAction="#answerChecked" toggleGroup="$group"/>
-            <TextField fx:id="fieldD" text="" />
+            <TextField fx:id="fieldC" text="" />
             <RadioButton fx:id="buttonD" text="AnswerD" onAction="#answerChecked" toggleGroup="$group"/>
+            <TextField fx:id="fieldD" text="" />
 
 
 

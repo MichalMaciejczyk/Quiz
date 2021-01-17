@@ -1,9 +1,13 @@
 package com.test.entity;
 
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionModel {
 
@@ -12,18 +16,36 @@ public class QuestionModel {
     public StringProperty answerB = new SimpleStringProperty();
     public StringProperty answerC = new SimpleStringProperty();
     public StringProperty answerD = new SimpleStringProperty();
-    public IntegerProperty rightAnswer = new SimpleIntegerProperty();
+    public List<IntegerProperty> rightAnswer = new ArrayList<>();
+    public IntegerProperty questionType = new SimpleIntegerProperty();
 
+    public QuestionModel() {
+    }
 
+    public QuestionModel(QuestionModel model) {
+        this.text = model.text;
+        this.answerA = model.answerA;
+        this.answerB = model.answerB;
+        this.answerC = model.answerC;
+        this.answerD = model.answerD;
+        this.rightAnswer = model.rightAnswer;
+        this.questionType =model.questionType;
+    }
 
     public Question toData(){
-        return new Question(text.get(), answerA.get(), answerB.get(), answerC.get(), answerD.get(),rightAnswer.get());
+        List <Integer> rightAnswers = new ArrayList<>();
+        for(IntegerProperty prop : rightAnswer){
+            rightAnswers.add(prop.getValue());
+        }
+
+        return new Question(text.get(), answerA.get(), answerB.get(), answerC.get(), answerD.get(),rightAnswers,questionType.get());
     }
 
     @Override
     public String toString() {
         return text.get();
     }
+
 
     public static class Question {
         private String text;
@@ -32,18 +54,20 @@ public class QuestionModel {
         private String answerB;
         private String answerC;
         private String answerD;
-        private Integer rightAnswer;
+        private List<Integer> rightAnswer;
+        private Integer questionType;
 
 
         public Question() { }
 
-        public Question(String text, String answerA, String answerB, String answerC, String answerD,Integer rightAnswer) {
+        public Question(String text, String answerA, String answerB, String answerC, String answerD,List<Integer> rightAnswer,Integer questionType) {
             this.text = text;
             this.answerA = answerA;
             this.answerB = answerB;
             this.answerC = answerC;
             this.answerD = answerD;
             this.rightAnswer = rightAnswer;
+            this.questionType = questionType;
 
         }
 
@@ -54,7 +78,14 @@ public class QuestionModel {
             model.answerB.set(answerB);
             model.answerC.set(answerC);
             model.answerD.set(answerD);
-            model.rightAnswer.set(rightAnswer);
+            model.questionType.set(questionType);
+            for(Integer answer: rightAnswer){
+                model.rightAnswer = new ArrayList<>();
+                IntegerProperty intProp = new SimpleIntegerProperty();
+                model.rightAnswer.add(intProp);
+                model.rightAnswer.get(model.rightAnswer.size() - 1).set(answer);
+            }
+
             return model;
 
         }
@@ -97,14 +128,17 @@ public class QuestionModel {
 
         public void setAnswerD(String answerD) { this.answerD = answerD; }
 
-        public Integer getRightAnswer(){return rightAnswer;}
+        public List<Integer> getRightAnswer() {
+            return rightAnswer;
+        }
 
-        public void setRightAnswer(Integer rightAnswer){this.rightAnswer = rightAnswer;}
+        public void setRightAnswer(List<Integer> rightAnswer) {
+            this.rightAnswer = rightAnswer;
+        }
 
+        public Integer getQuestionType() {return questionType;}
 
-
-
-
+        public void setQuestionType(Integer questionType){this.questionType=questionType;}
 
     }
 }
