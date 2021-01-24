@@ -19,11 +19,10 @@
     <padding>
         <Insets topRightBottomLeft="25"/>
     </padding>
-    <Label GridPane.columnSpan="2" fx:id="WelcomeLabel" text="Welcome in the Aplication. If you are Student and want take a Quiz hit the Student button.If you are a teacher and you want to view student
-results or create/modify tests hit Teacher button"
+    <Label GridPane.columnSpan="2" fx:id="WelcomeLabel" text="Witaj w aplikacji do generowania testów"
             GridPane.columnIndex="0" GridPane.rowIndex="0"
     />
-    <Button   text="Utwórz nowy test" fx:id="CreateNewTest" onAction="#onCreateNewTest" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-    <Button  text="Otwórz istniejący test" fx:id="OpenExistingTest" onAction="#onOpenExisitngTest" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Button prefWidth="300"  text="Utwórz nowy test" fx:id="CreateNewTest" onAction="#onCreateNewTest" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Button prefWidth="300" text="Otwórz istniejący test" fx:id="OpenExistingTest" onAction="#onOpenExsistingTest" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
 
 </GridPane>

@@ -42,7 +42,7 @@ public class StartController {
         window.show();
     }
 
-    public void onOpenExisitngTest(ActionEvent event)throws IOException {
+    public void onOpenExsistingTest(ActionEvent event)throws IOException {
         Parent parent =FXMLLoader.load(getClass().getClassLoader().getResource("OpenExistingTest.fxml"));
         Scene login = new Scene(parent);
 

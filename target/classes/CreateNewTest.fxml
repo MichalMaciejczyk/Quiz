@@ -30,10 +30,9 @@
                 </items>
             </ComboBox>
             <Button text="Zapisz jako" fx:id="SaveAs" onAction="#onSaveAs"/>
-            <Button text="Edytuj" fx:id="EditBtn" onAction="#onEdit" />
+            <Button text="Edytuj" fx:id="EditBtn" onAction="#onEditButton" />
+            <Button text="Zapisz zmiany" fx:id="SaveEdit" onAction="#onSaveEdit" />
             <Button text="Usuń" fx:id="DeleteBtn" onAction="#onDelete" />
-            <Button text="Wymieszaj pytania" fx:id="MixBtn" onAction="#onMix"/>
-            <Button text="Wymieszaj odpowiedzi" fx:id="MixBtnAns" onAction="#onMixAnswers"/>
             <Label text="Tu wpisz swoje pytanie"/>
             <TextField fx:id="fieldName"  text="" />
             <RadioButton fx:id="buttonA" text="Odpowiedź A" onAction="#answerChecked"/>
@@ -45,8 +44,6 @@
             <RadioButton fx:id="buttonD" text="Odpowiedź D" onAction="#answerChecked" />
             <TextField fx:id="fieldD" text="" />
             <Button text="Dodaj" fx:id="Add" onAction="#onAdd" />
-            <Button text="dupa" onAction="#onExport"/>
-            <Button text="dupa2" onAction="#onWydrukuj"/>
 
 
 

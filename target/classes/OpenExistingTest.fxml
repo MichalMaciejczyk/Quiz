@@ -21,9 +21,13 @@
     <right>
         <VBox spacing="10" prefWidth="300">
 
-            <Button text="Save as"  />
-            <Button text="Edit"  />
-            <Button text="Delete"  />
+            <Button text="Załaduj Test" onAction="#onLoad"/>
+            <Button text="Wymieszaj Pytania " fx:id="MixBtn" onAction="#onMix"/>
+            <Button text="Wymieszaj Odpowiedzi" fx:id="MixBtnAns" onAction="#onMixAnswers" />
+            <Button text="Pokaz Pytanie" onAction="#onShow"/>
+            <Button text="Zapisz Jako" onAction="#onSaveAs"/>
+            <Button text="Wyeksportuj test do PDFA" onAction="#onExport"/>
+            <Button text="Wyeskportuj odpowiedzi do PDFA" onAction="#onExportAnswers"/>
 
             <TextField fx:id="fieldName"  text="" />
             <RadioButton fx:id="buttonA" text="Odpowiedź A" />
@@ -34,7 +38,7 @@
             <TextField fx:id="fieldC" text="" />
             <RadioButton fx:id="buttonD" text="Odpowiedź D"  />
             <TextField fx:id="fieldD" text="" />
-            <Button text="Add" fx:id="Dodaj"  />
+
 
 
             <padding>

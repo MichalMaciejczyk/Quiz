@@ -66,9 +66,9 @@ public class QuestionModel {
             this.answerB = answerB;
             this.answerC = answerC;
             this.answerD = answerD;
-            this.rightAnswer = rightAnswer;
+            this.rightAnswer=new ArrayList<>();
+            this.rightAnswer.addAll(rightAnswer);
             this.questionType = questionType;
-
         }
 
         public QuestionModel toModel(){
@@ -79,15 +79,14 @@ public class QuestionModel {
             model.answerC.set(answerC);
             model.answerD.set(answerD);
             model.questionType.set(questionType);
+            model.rightAnswer = new ArrayList<>();
             for(Integer answer: rightAnswer){
-                model.rightAnswer = new ArrayList<>();
                 IntegerProperty intProp = new SimpleIntegerProperty();
+                intProp.setValue(answer);
                 model.rightAnswer.add(intProp);
-                model.rightAnswer.get(model.rightAnswer.size() - 1).set(answer);
+                model.rightAnswer.get(model.rightAnswer.size() - 1).setValue(intProp.getValue());
             }
-
             return model;
-
         }
 
         public String getText() {
